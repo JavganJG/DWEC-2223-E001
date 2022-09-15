@@ -1,0 +1,26 @@
+
+crear docker (des de la carpeta on esta Dockerfile)
+docker build -t dwc/xampp .
+
+Donar permisos d'escr/lect a altres a carpeta DWC
+
+chmod -R 777 /home/vesprada/Escritorio/dockerdwc/dwc               
+
+docker run -it -d -v /home/vesprada/Escritorio/dockerdwc/dwc:/opt/lampp/htdocs/dwc -v dwc-bd:/opt/lampp/var/mysql -p 8080:80 -p 443:443 -p 3306:3306 dwc/xampp
+
+localhost:8080/dwc
+
+mostrar dockers execucio
+docker ps
+
+parar docker (id s'obte de comandament anterior)
+docker stop ID
+
+parar tots els dockers
+docker stop $(docker ps -a -q)
+
+eliminar tots el dockers parats
+docker system prune -a
+
+obrir un bash o terminal dins docker
+docker run -it dwc/xampp bash
